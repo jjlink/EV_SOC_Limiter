@@ -17,7 +17,7 @@ http://www.teslamotorsclub.com/showthread.php/6754-Open-Vehicle-Monitor-System-(
 
 was there an answer to PV1's question about OVMS ability to stop charge at a selectable SOC % ?
 
-
+JJLINK wrote:
 Here is how I did this for home use (not remote use) with a Intermatic CA3750 Z-wave device, and a VeraLite Home Controller, and a BeagleBone Black Single Board Computer.
 
 I purchased a Intermatic CA3750 to shut off my electric car charger when the charge reaches a certain percentage (like 80%). Many thanks to the previous reviewers of the Intermatic CA3750 on Amazon.com for clarifying how to wire this unit up for electric water heaters; the wiring is the same for an electric car EVSE. I simply wrote a Python program to read the charging status and state of charge percentage from the OpenVehicles.com server. So when the car is charging the Python program watches to see when the car is charging and when the state of charge reaches say 80%; it then sends a Http request to my VeraLite Home Controller which sends a Z-wave signal to the CA3750 and shuts off the power to the car charging unit. The python program runs on a BeagleBone Black Single Board Computer Development Board I had laying around doing nothing. This set up works really nice and I already had all the parts except for the Intermatic CA3750. Plus I learned Python in a very short time and love its ease of use.
@@ -40,3 +40,11 @@ Python program Link:
 http://bit.ly/OVMS_EVSE_80_Percent
 _________________
 John - 2012 Silver i-MiEV SE model, Jan 19th, 2012 w/OpenEvse, caniOn,& OVMS. 
+
+PV1 wrote:
+Very cool. Glad someone was able to make something like this work.
+
+As for my SIM card, I switched to Ting, which has pretty reasonable rates (no traditional plans, just tiered rates for separate items such as data and messages). Plus, because I switched from PTel, I got a $75 credit on my account, which should last for 3-4 months.
+
+JJLINK wrote:
+With this setup there is also a safety factor built into the OpenEVSE I am using since it it set to only charge between the hours of 00:05 through 07:30. So I don't have to worry about the Intermatic CA3750 coming back on unexpectedly and charging the car more. If I want to charge during the day I just push the OpenEVSE button to charge now and the Python program will still shut it off at 80%.
